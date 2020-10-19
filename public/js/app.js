@@ -6502,14 +6502,14 @@ exports.push([module.i, ".LogOut {\n    border: none;\n    background: none;\n  
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/views/Flats/Flats.css":
-/*!****************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/views/Flats/Flats.css ***!
-  \****************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/views/Flats/Listing/Flats.css":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/views/Flats/Listing/Flats.css ***!
+  \************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
@@ -71790,8 +71790,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _views_Register_Register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Register/Register */ "./resources/js/views/Register/Register.js");
-/* harmony import */ var _views_Flats_Flats__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Flats/Flats */ "./resources/js/views/Flats/Flats.js");
-/* harmony import */ var _views_Flats_SingleView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Flats/SingleView */ "./resources/js/views/Flats/SingleView.js");
+/* harmony import */ var _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Flats/Listing/Flats */ "./resources/js/views/Flats/Listing/Flats.js");
+/* harmony import */ var _views_Flats_SingleView_SingleView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Flats/SingleView/SingleView */ "./resources/js/views/Flats/SingleView/SingleView.js");
 /* harmony import */ var _views_Login_Login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Login/Login */ "./resources/js/views/Login/Login.js");
 
 
@@ -71805,15 +71805,15 @@ var Router = function Router(_ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
-    component: _views_Flats_Flats__WEBPACK_IMPORTED_MODULE_3__["Flats"]
+    component: _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_3__["Flats"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/flats",
-    component: _views_Flats_Flats__WEBPACK_IMPORTED_MODULE_3__["Flats"]
+    component: _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_3__["Flats"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/flats/:flatId",
-    component: _views_Flats_SingleView__WEBPACK_IMPORTED_MODULE_4__["SingleView"]
+    component: _views_Flats_SingleView_SingleView__WEBPACK_IMPORTED_MODULE_4__["SingleView"]
   }), !isLoggedIn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/register",
@@ -72168,15 +72168,15 @@ var useAuthHook = function useAuthHook() {
 
 /***/ }),
 
-/***/ "./resources/js/views/Flats/Flats.css":
-/*!********************************************!*\
-  !*** ./resources/js/views/Flats/Flats.css ***!
-  \********************************************/
+/***/ "./resources/js/views/Flats/Listing/Flats.css":
+/*!****************************************************!*\
+  !*** ./resources/js/views/Flats/Listing/Flats.css ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./Flats.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/views/Flats/Flats.css");
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/postcss-loader/src??ref--6-2!./Flats.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/views/Flats/Listing/Flats.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -72190,7 +72190,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -72198,10 +72198,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./resources/js/views/Flats/Flats.js":
-/*!*******************************************!*\
-  !*** ./resources/js/views/Flats/Flats.js ***!
-  \*******************************************/
+/***/ "./resources/js/views/Flats/Listing/Flats.js":
+/*!***************************************************!*\
+  !*** ./resources/js/views/Flats/Listing/Flats.js ***!
+  \***************************************************/
 /*! exports provided: Flats */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -72215,7 +72215,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_laravel_paginex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-laravel-paginex */ "./node_modules/react-laravel-paginex/dist/index.js");
 /* harmony import */ var react_laravel_paginex__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_laravel_paginex__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _Flats_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Flats.css */ "./resources/js/views/Flats/Flats.css");
+/* harmony import */ var _Flats_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Flats.css */ "./resources/js/views/Flats/Listing/Flats.css");
 /* harmony import */ var _Flats_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_Flats_css__WEBPACK_IMPORTED_MODULE_4__);
 
 
@@ -72536,9 +72536,9 @@ var Flats = function Flats() {
     value: "DEFAULT"
   }, "\u041F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
     value: "ASC"
-  }, "\u041F\u043E \u0432\u043E\u0437\u0440\u0430\u0441\u0442\u0430\u043D\u0438\u044E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+  }, "\u0421\u043D\u0430\u0447\u0430\u043B\u0430 \u0441\u0442\u0430\u0440\u044B\u0435"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
     value: "DESC"
-  }, "\u041F\u043E \u0443\u0431\u044B\u0432\u0430\u043D\u0438\u044E"))), isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, "C\u043D\u0430\u0447\u0430\u043B\u0430 \u043D\u043E\u0432\u044B\u0435"))), isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "lds-dual-ring"
   }), flats.map(function (flat, idx) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -72578,10 +72578,10 @@ var Flats = function Flats() {
 
 /***/ }),
 
-/***/ "./resources/js/views/Flats/SingleView.js":
-/*!************************************************!*\
-  !*** ./resources/js/views/Flats/SingleView.js ***!
-  \************************************************/
+/***/ "./resources/js/views/Flats/SingleView/SingleView.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/views/Flats/SingleView/SingleView.js ***!
+  \***********************************************************/
 /*! exports provided: SingleView */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -73063,8 +73063,8 @@ var Register = function Register(_ref) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /usr/local/var/www/ozitag/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /usr/local/var/www/ozitag/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/ozitag/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/ozitag/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Flats;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Posts;
 
 class PostsController extends Controller
@@ -37,12 +38,28 @@ class PostsController extends Controller
         return response()->json($paginationData);
     }
 
+    /**
+     * Remove entity by id.
+     *
+     * @param Request $request
+     * @param $postId
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function removeById(Request $request, $postId)
     {
         Posts::destroy($postId);
         return response()->json('Запись удалена');
     }
 
+    /**
+     * Get entity by id.
+     *
+     * @param Request $request
+     * @param $postId
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getById(Request $request, $postId)
     {
         $post = Posts::find($postId);

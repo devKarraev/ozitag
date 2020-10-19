@@ -3,37 +3,27 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthLoginRequest;
+use App\Http\Requests\AuthRegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Posts;
 
 class AuthController extends Controller
 {
     /**
-     * Create user
+     * Create user.
      *
-     * @param Request $request
+     * @param AuthRegisterRequest $request
      * @param String  userName
      * @param String  email
      * @param String  password
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function register(Request $request)
+    public function register(AuthRegisterRequest $request)
     {
-        $request->validate([
-            'userName' => 'required|string',
-            'email'    => 'required|string|email|unique:users',
-            'password' => 'required|string'
-        ],
-        [
-            'required' => 'Невверно введено :attribute',
-            'unique'   => 'Данный  :attribute уже занят',
-            'email'    => 'Некорректная электронная почта'
-        ]);
-
         $user = new User([
             'name'     => $request->userName,
             'email'    => $request->email,
@@ -50,24 +40,18 @@ class AuthController extends Controller
         ], 201);
     }
 
-
     /**
-     * Login user and create token
+     * Authorize user.
      *
+     * @param  AuthLoginRequest $request
      * @param  [string] email
      * @param  [string] password
      * @param  [boolean] remember_me
-     * @return [string] access_token
-     * @return [string] token_type
-     * @return [string] expires_at
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function login(Request $request)
+    public function login(AuthLoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
-
         $credentials = $request->only('email', 'password');
 
         if (!Auth::attempt($credentials))
@@ -94,9 +78,11 @@ class AuthController extends Controller
     }
 
     /**
-     * Logout user (Revoke the token)
+     * Logout user (Revoke the token).
      *
-     * @return [string] message
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function logout(Request $request)
     {
@@ -107,55 +93,14 @@ class AuthController extends Controller
     }
 
     /**
-     * Get the authenticated User
+     * Get the authenticated User.
      *
-     * @return [json] user object
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function user(Request $request)
     {
         return response()->json($request->user());
-    }
-
-    public function command(Request $request)
-    {
-        libxml_use_internal_errors(true);
-        $domDoc = new \DOMDocument();
-
-        $startPage = 0;
-        while (true) {
-            $domDoc->loadHTMLFile("https://realt.by/rent/flat-for-day/?page=$startPage");
-            $xpath = new \DOMXPath($domDoc);
-
-            $postTitles = $xpath->evaluate("//div[@class='media-body']");
-            $postPrice = $xpath->evaluate("//span[@class='price-byr']");
-            $postCreatedAt = $xpath->evaluate("//p[@class='fl f11 grey']");
-            $postStatus = $xpath->evaluate("//div[@class='bd-item-right-top']");
-            $postId = $xpath->evaluate("//div[@class='bd-item-right-top']/p[@class='fr f11 grey']");
-            $postImages = $xpath->evaluate('//div[@class="bd-item-left"]/div[@class="bd-item-left-top"]/a/img');
-            $postMainContent = $xpath->evaluate("//div[@class='bd-item-right-center']");
-
-            if ($postTitles->length == 0) break;
-
-            $data = [];
-            for ($i = 0; $i < $postTitles->length; $i++) {
-                $currentPostId = ltrim($postId[$i]->nodeValue, '#');
-                if (Posts::where('post_id', '=', $currentPostId)->count() > 0) continue;
-
-                array_push($data, [
-                    'title'        => $postTitles[$i]->nodeValue,
-                    'main_content' => $domDoc->saveHTML($postMainContent[$i]),
-                    'price'        => str_replace(' руб/сутки', '', $postPrice[$i]->nodeValue),
-                    'image_path'   => $postImages[$i]->attributes[1]->value,
-                    'post_status'  => $domDoc->saveHTML($postStatus[$i]),
-                    'post_id'      => $currentPostId,
-                    'created_at'   => \Carbon\Carbon::parse(trim($postCreatedAt[$i]->nodeValue, ' '))->format('Y-m-d')
-                ]);
-            }
-            Posts::insert($data);
-            echo "Page $page was parsed \n";
-            $page++;
-        }
-
-        libxml_clear_errors();
     }
 }

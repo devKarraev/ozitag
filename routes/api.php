@@ -22,7 +22,6 @@ Route::group([
     'namespace' => 'Auth',
     'prefix'    => '/auth'
 ], function () {
-    Route::get('/command', 'AuthController@command');
     Route::post('/login', 'AuthController@login');
     Route::post('/register', 'AuthController@register');
 
@@ -36,6 +35,7 @@ Route::group([
 
 
 Route::group([
+    'namespace' => 'Flats',
     'prefix' => '/posts'
 ], function () {
     Route::get('/', 'PostsController@index');

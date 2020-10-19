@@ -128,8 +128,8 @@ export const Flats = () => {
                     onChange={e => filterByDate(e)}
                 >
                     <option value='DEFAULT'>По умолчанию</option>
-                    <option value='ASC'>По возрастанию</option>
-                    <option value='DESC'>По убыванию</option>
+                    <option value='ASC'>Сначала старые</option>
+                    <option value='DESC'>Cначала новые</option>
                 </select>
             </div>
             }

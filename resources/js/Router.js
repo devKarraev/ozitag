@@ -1,10 +1,9 @@
 import React from "react"
 import {Switch, Route} from "react-router-dom"
 import {Register} from "./views/Register/Register";
-import {Flats} from "./views/Flats/Flats";
-import {SingleView} from "./views/Flats/SingleView";
+import {Flats} from "./views/Flats/Listing/Flats";
+import {SingleView} from "./views/Flats/SingleView/SingleView";
 import {Login} from "./views/Login/Login";
-
 
 export const Router = ({logInHandler, isLoggedIn}) => {
 
