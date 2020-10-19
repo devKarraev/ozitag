@@ -40,5 +40,6 @@ Route::group([
 ], function () {
     Route::get('/', 'PostsController@index');
     Route::get('/{postId}', 'PostsController@getById');
+    Route::post('/update/{postId}', 'PostsController@updateById');
     Route::delete('/{postId}', 'PostsController@removeById')->where('id', '[0-9]+');;
 });

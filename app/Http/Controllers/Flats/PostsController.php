@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Flats;
 
+use App\Http\Requests\PostsUpdateByIdRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\FlatPost;
@@ -62,7 +63,22 @@ class PostsController extends Controller
      */
     public function getById(Request $request, $postId)
     {
-        $post = FlatPost::find($postId);
+        $post = FlatPost::find($postId, ['main_content', 'id', 'price', 'title']);
         return response()->json($post);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     */
+    public function updateById(PostsUpdateByIdRequest $request)
+    {
+        FlatPost::find($request->postId)->update([
+            'main_content' => $request->mainContent,
+            'price'        => $request->price,
+            'title'        => $request->title
+        ]);
+        return response()->json('Успешно обновлено');
     }
 }

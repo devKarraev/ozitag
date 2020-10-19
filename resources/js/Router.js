@@ -4,6 +4,7 @@ import {Register} from "./views/Register/Register";
 import {Flats} from "./views/Flats/Listing/Flats";
 import {SingleView} from "./views/Flats/SingleView/SingleView";
 import {Login} from "./views/Login/Login";
+import {NotFond} from "./views/NotFound/NotFound";
 
 export const Router = ({logInHandler, isLoggedIn}) => {
 
@@ -18,6 +19,7 @@ export const Router = ({logInHandler, isLoggedIn}) => {
                 <Route exact path="/login" component={() => <Login logInHandler={logInHandler} />} />
             </React.Fragment>
             }
+            <Route component={NotFond} />
         </Switch>
     )
 }

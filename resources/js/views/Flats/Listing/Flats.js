@@ -7,7 +7,7 @@ import {useAuthHook} from "../../../hooks/auth.hook";
 const paginationOptions = {
     nextButtonText: 'Вперед',
     prevButtonText: 'Назад',
-    numbersCountForShow: 2
+    numbersCountForShow: 0
 }
 
 export const Flats = () => {
@@ -88,7 +88,7 @@ export const Flats = () => {
             setFlats(data.data)
             setIsLoading(false)
         } catch (e) {
-            console.log('Something went wring')
+            console.log('Something went wrong')
         }
     }
 
@@ -151,7 +151,12 @@ export const Flats = () => {
                         {isLoggedIn
                             ?
                             <React.Fragment>
-                                <Link to={`/flats/${flat.id}`} type="button" className="btn btn-primary">Изменить</Link>
+                                <Link
+                                    to={`/flats/${flat.id}`}
+                                    className="btn btn-primary mr-2"
+                                >
+                                    Изменить
+                                </Link>
                                 <button
                                     type="button"
                                     className="btn btn-danger"

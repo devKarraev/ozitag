@@ -39,11 +39,11 @@ class AuthRegisterRequest extends FormRequest
     {
         return [
             'userName.required' => 'Введите свое имя',
-            'email.unique'   => 'Данная электронная почта уже занята',
-            'email.required'   => 'Введите свою электронную почту',
-            'email.email'   => 'Некорректная электронная почта',
+            'email.unique'      => 'Данная электронная почта уже занята',
+            'email.required'    => 'Введите свою электронную почту',
+            'email.email'       => 'Некорректная электронная почта',
             'password.required' => 'Введите пароль',
-            'password.min' => 'Минимальная длина пароля - 3 символа'
+            'password.min'      => 'Минимальная длина пароля - 3 символа'
         ];
     }
 }
