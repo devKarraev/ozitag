@@ -25,9 +25,9 @@ class PostsController extends Controller
         } elseif ($sortPrice === 'DEFAULT') {
             $paginationData = FlatPost::orderBy('created_at', $sortDate)->paginate(self::PER_PAGE);
         } elseif ($sortDate === 'DEFAULT') {
-            $paginationData = FlatPost::orderByRaw("LENGTH(posts.price) $sortPrice, posts.price $sortPrice")->paginate(self::PER_PAGE);
+            $paginationData = FlatPost::orderByRaw("LENGTH(flat_posts.price) $sortPrice, flat_posts.price $sortPrice")->paginate(self::PER_PAGE);
         } else {
-            $paginationData = FlatPost::orderByRaw("LENGTH(posts.price) $sortPrice, posts.price $sortPrice, created_at $sortDate")->paginate(self::PER_PAGE);
+            $paginationData = FlatPost::orderByRaw("LENGTH(flat_posts.price) $sortPrice, flat_posts.price $sortPrice, created_at $sortDate")->paginate(self::PER_PAGE);
         }
 
         $paginationData->appends([
