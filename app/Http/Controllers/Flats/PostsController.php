@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Flats;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Posts;
+use App\Models\FlatPost;
 
 class PostsController extends Controller
 {
@@ -21,13 +21,13 @@ class PostsController extends Controller
         $sortDate = $request->input('sort-date');
 
         if (($sortPrice === 'DEFAULT' || $sortPrice === null) && ($sortDate === 'DEFAULT' || $sortDate === null)) {
-            $paginationData = Posts::paginate(self::PER_PAGE);
+            $paginationData = FlatPost::paginate(self::PER_PAGE);
         } elseif ($sortPrice === 'DEFAULT') {
-            $paginationData = Posts::orderBy('created_at', $sortDate)->paginate(self::PER_PAGE);
+            $paginationData = FlatPost::orderBy('created_at', $sortDate)->paginate(self::PER_PAGE);
         } elseif ($sortDate === 'DEFAULT') {
-            $paginationData = Posts::orderByRaw("LENGTH(posts.price) $sortPrice, posts.price $sortPrice")->paginate(self::PER_PAGE);
+            $paginationData = FlatPost::orderByRaw("LENGTH(posts.price) $sortPrice, posts.price $sortPrice")->paginate(self::PER_PAGE);
         } else {
-            $paginationData = Posts::orderByRaw("LENGTH(posts.price) $sortPrice, posts.price $sortPrice, created_at $sortDate")->paginate(self::PER_PAGE);
+            $paginationData = FlatPost::orderByRaw("LENGTH(posts.price) $sortPrice, posts.price $sortPrice, created_at $sortDate")->paginate(self::PER_PAGE);
         }
 
         $paginationData->appends([
@@ -48,7 +48,7 @@ class PostsController extends Controller
      */
     public function removeById(Request $request, $postId)
     {
-        Posts::destroy($postId);
+        FlatPost::destroy($postId);
         return response()->json('Запись удалена');
     }
 
@@ -62,7 +62,7 @@ class PostsController extends Controller
      */
     public function getById(Request $request, $postId)
     {
-        $post = Posts::find($postId);
+        $post = FlatPost::find($postId);
         return response()->json($post);
     }
 }

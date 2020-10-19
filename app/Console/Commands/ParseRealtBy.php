@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Posts;
+use App\Models\FlatPost;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
@@ -60,7 +60,7 @@ class ParseRealtBy extends Command
             $data = [];
             for ($i = 0; $i < $postTitles->length; $i++) {
                 $currentPostId = ltrim($postId[$i]->nodeValue, '#');
-                if (Posts::where('post_id', '=', $currentPostId)->count() > 0) continue;
+                if (FlatPost::where('post_id', '=', $currentPostId)->count() > 0) continue;
 
                 array_push($data, [
                     'title'        => $postTitles[$i]->nodeValue,
@@ -72,7 +72,7 @@ class ParseRealtBy extends Command
                     'created_at'   => Carbon::parse(trim($postCreatedAt[$i]->nodeValue, ' '))->format('Y-m-d')
                 ]);
             }
-            Posts::insert($data);
+            FlatPost::insert($data);
             echo "Page $startPage was parsed \n";
             $startPage++;
         }

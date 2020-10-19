@@ -65,7 +65,7 @@ export const useAuthHook = () => {
 
     const isUserLoggedIn = () => {
         let isUserLoggedIn = false
-        if (localStorage.getItem('appState') != null) {
+        if (localStorage.getItem(storageName) != null) {
             isUserLoggedIn = JSON.parse(localStorage.getItem('appState')).isLoggedIn
         }
         return isUserLoggedIn
