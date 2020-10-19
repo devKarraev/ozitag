@@ -72159,9 +72159,13 @@ var useAuthHook = function useAuthHook() {
   }();
 
   var isUserLoggedIn = function isUserLoggedIn() {
+    var isUserLoggedIn = false;
+
     if (localStorage.getItem('appState') != null) {
-      var _isUserLoggedIn = JSON.parse(localStorage.getItem('appState')).isLoggedIn;
+      isUserLoggedIn = JSON.parse(localStorage.getItem('appState')).isLoggedIn;
     }
+
+    return isUserLoggedIn;
   };
 
   return {
