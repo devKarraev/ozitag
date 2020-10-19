@@ -4,3 +4,4 @@
 3. php artisan migrate 
 4. php artisan passport:install
 5. комманда для запуска парсера php artisan parse:realtBy {startPage?}
+6. npm run watch
