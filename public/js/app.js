@@ -71827,12 +71827,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _views_Register_Register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Register/Register */ "./resources/js/views/Register/Register.js");
-/* harmony import */ var _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Flats/Listing/Flats */ "./resources/js/views/Flats/Listing/Flats.js");
-/* harmony import */ var _views_Flats_SingleView_SingleView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Flats/SingleView/SingleView */ "./resources/js/views/Flats/SingleView/SingleView.js");
-/* harmony import */ var _views_Login_Login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Login/Login */ "./resources/js/views/Login/Login.js");
-/* harmony import */ var _views_NotFound_NotFound__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/NotFound/NotFound */ "./resources/js/views/NotFound/NotFound.js");
-
+/* harmony import */ var _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Flats/Listing/Flats */ "./resources/js/views/Flats/Listing/Flats.js");
+/* harmony import */ var _views_Flats_SingleView_SingleView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Flats/SingleView/SingleView */ "./resources/js/views/Flats/SingleView/SingleView.js");
+/* harmony import */ var _routes_AuthRoutes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes/AuthRoutes */ "./resources/js/routes/AuthRoutes.js");
+/* harmony import */ var _views_NotFound_NotFound__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/NotFound/NotFound */ "./resources/js/views/NotFound/NotFound.js");
 
 
 
@@ -71845,33 +71843,20 @@ var Router = function Router(_ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
-    component: _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_3__["Flats"]
+    component: _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_2__["Flats"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/flats",
-    component: _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_3__["Flats"]
+    component: _views_Flats_Listing_Flats__WEBPACK_IMPORTED_MODULE_2__["Flats"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/flats/:flatId",
-    component: _views_Flats_SingleView_SingleView__WEBPACK_IMPORTED_MODULE_4__["SingleView"]
-  }), !isLoggedIn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/register",
-    component: function component() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_Register_Register__WEBPACK_IMPORTED_MODULE_2__["Register"], {
-        logInHandler: logInHandler
-      });
-    }
+    component: _views_Flats_SingleView_SingleView__WEBPACK_IMPORTED_MODULE_3__["SingleView"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes_AuthRoutes__WEBPACK_IMPORTED_MODULE_4__["AuthRoutes"], {
+    isLoggedIn: isLoggedIn,
+    logInHandler: logInHandler
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/login",
-    component: function component() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_Login_Login__WEBPACK_IMPORTED_MODULE_5__["Login"], {
-        logInHandler: logInHandler
-      });
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _views_NotFound_NotFound__WEBPACK_IMPORTED_MODULE_6__["NotFond"]
+    component: _views_NotFound_NotFound__WEBPACK_IMPORTED_MODULE_5__["NotFond"]
   }));
 };
 
@@ -72217,6 +72202,61 @@ var useAuthHook = function useAuthHook() {
     authRegistered: authRegistered,
     isUserLoggedIn: isUserLoggedIn
   };
+};
+
+/***/ }),
+
+/***/ "./resources/js/routes/AuthRoutes.js":
+/*!*******************************************!*\
+  !*** ./resources/js/routes/AuthRoutes.js ***!
+  \*******************************************/
+/*! exports provided: AuthRoutes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRoutes", function() { return AuthRoutes; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _views_Register_Register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/Register/Register */ "./resources/js/views/Register/Register.js");
+/* harmony import */ var _views_Login_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/Login/Login */ "./resources/js/views/Login/Login.js");
+/* harmony import */ var _views_NotFound_NotFound__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/NotFound/NotFound */ "./resources/js/views/NotFound/NotFound.js");
+
+
+
+
+
+var AuthRoutes = function AuthRoutes(_ref) {
+  var isLoggedIn = _ref.isLoggedIn,
+      logInHandler = _ref.logInHandler;
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
+
+  if (history.location.pathname !== "/register" && history.location.pathname !== "/login") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_NotFound_NotFound__WEBPACK_IMPORTED_MODULE_4__["NotFond"], null);
+  }
+
+  if (!isLoggedIn) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      exact: true,
+      path: "/register",
+      component: function component() {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_Register_Register__WEBPACK_IMPORTED_MODULE_2__["Register"], {
+          logInHandler: logInHandler
+        });
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      exact: true,
+      path: "/login",
+      component: function component() {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_Login_Login__WEBPACK_IMPORTED_MODULE_3__["Login"], {
+          logInHandler: logInHandler
+        });
+      }
+    }));
+  } else {
+    return '';
+  }
 };
 
 /***/ }),
@@ -73331,7 +73371,7 @@ var Register = function Register(_ref) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n  ╷\n8 │ @import '~bootstrap/scss/bootstrap';\n  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  /usr/local/var/www/ozitag/resources/sass/app.scss 8:9  root stylesheet\n    at /usr/local/var/www/ozitag/node_modules/webpack/lib/NormalModule.js:316:20\n    at /usr/local/var/www/ozitag/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /usr/local/var/www/ozitag/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/usr/local/var/www/ozitag/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at /usr/local/var/www/ozitag/node_modules/sass-loader/dist/index.js:73:7\n    at Function.call$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:89862:16)\n    at _render_closure1.call$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:79036:12)\n    at _RootZone.runBinary$3$3 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:26612:18)\n    at _FutureListener.handleError$1 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25140:19)\n    at _Future__propagateToListeners_handleError.call$0 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25437:49)\n    at Object._Future__propagateToListeners (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:4502:77)\n    at _Future._completeError$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25270:9)\n    at _AsyncAwaitCompleter.completeError$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:24613:12)\n    at Object._asyncRethrow (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:4251:17)\n    at /usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:13112:20\n    at _wrapJsFunctionForAsync_closure.$protected (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:4276:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:24634:12)\n    at _awaitOnObject_closure0.call$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:24626:25)\n    at _RootZone.runBinary$3$3 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:26612:18)\n    at _FutureListener.handleError$1 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25140:19)\n    at _Future__propagateToListeners_handleError.call$0 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25437:49)\n    at Object._Future__propagateToListeners (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:4502:77)\n    at _Future._completeError$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25270:9)\n    at _AsyncAwaitCompleter.completeError$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:24613:12)\n    at Object._asyncRethrow (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:4251:17)\n    at /usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:15754:20\n    at _wrapJsFunctionForAsync_closure.$protected (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:4276:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:24634:12)\n    at _awaitOnObject_closure0.call$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:24626:25)\n    at _RootZone.runBinary$3$3 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:26612:18)\n    at _FutureListener.handleError$1 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25140:19)\n    at _Future__propagateToListeners_handleError.call$0 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25437:49)\n    at Object._Future__propagateToListeners (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:4502:77)\n    at _Future._completeError$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:25270:9)\n    at _AsyncAwaitCompleter.completeError$2 (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:24613:12)\n    at Object._asyncRethrow (/usr/local/var/www/ozitag/node_modules/sass/sass.dart.js:4251:17)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
