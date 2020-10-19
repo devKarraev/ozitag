@@ -68,9 +68,11 @@ class PostsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage
      *
-     * @param Request $request
+     * @param PostsUpdateByIdRequest $request
+     *
+     * @return mixed
      */
     public function updateById(PostsUpdateByIdRequest $request)
     {
