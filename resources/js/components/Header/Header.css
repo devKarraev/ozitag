@@ -1,0 +1,18 @@
+.LogOut {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.LogOut:focus {
+    outline: none !important;
+}
+
+.Header {
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.Link {
+    padding: 20px 0 20px !important;
+    margin-right: 40px;
+}
