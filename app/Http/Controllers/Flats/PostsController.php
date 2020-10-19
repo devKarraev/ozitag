@@ -9,6 +9,9 @@ use App\Models\FlatPost;
 
 class PostsController extends Controller
 {
+    /**
+     * Paginator per page value.
+     */
     const PER_PAGE = 20;
 
     /**
