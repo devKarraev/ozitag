@@ -72158,11 +72158,18 @@ var useAuthHook = function useAuthHook() {
     };
   }();
 
+  var isUserLoggedIn = function isUserLoggedIn() {
+    if (localStorage.getItem('appState') != null) {
+      var _isUserLoggedIn = JSON.parse(localStorage.getItem('appState')).isLoggedIn;
+    }
+  };
+
   return {
     login: login,
     authError: authError,
     register: register,
-    authRegistered: authRegistered
+    authRegistered: authRegistered,
+    isUserLoggedIn: isUserLoggedIn
   };
 };
 
@@ -72217,6 +72224,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _Flats_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Flats.css */ "./resources/js/views/Flats/Listing/Flats.css");
 /* harmony import */ var _Flats_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_Flats_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _hooks_auth_hook__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../hooks/auth.hook */ "./resources/js/hooks/auth.hook.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -72239,12 +72247,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var paginationOptions = {
   nextButtonText: 'Вперед',
   prevButtonText: 'Назад',
   numbersCountForShow: 2
 };
 var Flats = function Flats() {
+  var _useAuthHook = Object(_hooks_auth_hook__WEBPACK_IMPORTED_MODULE_5__["useAuthHook"])(),
+      isUserLoggedIn = _useAuthHook.isUserLoggedIn;
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       flats = _useState2[0],
@@ -72282,15 +72294,14 @@ var Flats = function Flats() {
 
     function _fetchFlats() {
       _fetchFlats = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var isUserLoggedIn, response, flatsData;
+        var response, flatsData;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
 
-                if (localStorage.getItem('appState') != null) {
-                  isUserLoggedIn = JSON.parse(localStorage.getItem('appState')).isLoggedIn;
+                if (isUserLoggedIn()) {
                   setIsLoggedIn(isUserLoggedIn);
                 }
 

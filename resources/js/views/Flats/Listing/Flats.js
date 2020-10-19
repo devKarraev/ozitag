@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import {Pagination} from 'react-laravel-paginex'
 import {Link} from "react-router-dom";
 import "./Flats.css"
+import {useAuthHook} from "../../../hooks/auth.hook";
 
 const paginationOptions = {
     nextButtonText: 'Вперед',
@@ -11,6 +12,7 @@ const paginationOptions = {
 
 export const Flats = () => {
 
+    const {isUserLoggedIn} = useAuthHook()
     const [flats, setFlats] = useState([])
     const [paginationObject, setPaginationObject] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
@@ -21,8 +23,7 @@ export const Flats = () => {
     useEffect(() => {
         async function fetchFlats() {
             try {
-                if (localStorage.getItem('appState') != null) {
-                    const isUserLoggedIn = JSON.parse(localStorage.getItem('appState')).isLoggedIn
+                if (isUserLoggedIn()) {
                     setIsLoggedIn(isUserLoggedIn)
                 }
 
